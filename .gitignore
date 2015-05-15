@@ -1,0 +1,24 @@
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+
+# node.js
+#
+npm-debug.log
+node_modules/
+
+# CocoaPods
+Pods/
