@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		038AE8B5157A10AE882E564B /* libPods-RNUserDefaultsIOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F74958A49880AC1BFF32E /* libPods-RNUserDefaultsIOSTests.a */; };
 		559FCEFB1B06A72F003129B0 /* libRNUserDefaultsIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559FCEEF1B06A72F003129B0 /* libRNUserDefaultsIOS.a */; };
-		559FCF0A1B06A9D4003129B0 /* UserDefaultsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 559FCF091B06A9D4003129B0 /* UserDefaultsSpec.m */; };
+		559FCF0A1B06A9D4003129B0 /* UserDefaultsManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 559FCF091B06A9D4003129B0 /* UserDefaultsManagerSpec.m */; };
 		559FCF0F1B06AA3C003129B0 /* RNUserDefaultsIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 559FCF0D1B06AA3C003129B0 /* RNUserDefaultsIOS.m */; };
 		559FCF101B06AA3C003129B0 /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 559FCF0E1B06AA3C003129B0 /* UserDefaultsManager.m */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,7 @@
 		559FCEEF1B06A72F003129B0 /* libRNUserDefaultsIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNUserDefaultsIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		559FCEFA1B06A72F003129B0 /* RNUserDefaultsIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNUserDefaultsIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		559FCF001B06A72F003129B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		559FCF091B06A9D4003129B0 /* UserDefaultsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsSpec.m; sourceTree = "<group>"; };
+		559FCF091B06A9D4003129B0 /* UserDefaultsManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsManagerSpec.m; sourceTree = "<group>"; };
 		559FCF0B1B06AA3C003129B0 /* RNUserDefaultsIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUserDefaultsIOS.h; sourceTree = "<group>"; };
 		559FCF0C1B06AA3C003129B0 /* UserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsManager.h; sourceTree = "<group>"; };
 		559FCF0D1B06AA3C003129B0 /* RNUserDefaultsIOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUserDefaultsIOS.m; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				559FCEFF1B06A72F003129B0 /* Supporting Files */,
-				559FCF091B06A9D4003129B0 /* UserDefaultsSpec.m */,
+				559FCF091B06A9D4003129B0 /* UserDefaultsManagerSpec.m */,
 			);
 			path = RNUserDefaultsIOSTests;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				559FCF0A1B06A9D4003129B0 /* UserDefaultsSpec.m in Sources */,
+				559FCF0A1B06A9D4003129B0 /* UserDefaultsManagerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
