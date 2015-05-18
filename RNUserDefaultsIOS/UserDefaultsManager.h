@@ -10,6 +10,8 @@
 
 @interface UserDefaultsManager : NSObject
 
++ (NSArray *)arrayForKey:(NSString *)key;
+
 + (NSString *)stringForKey:(NSString *)key;
 
 @end

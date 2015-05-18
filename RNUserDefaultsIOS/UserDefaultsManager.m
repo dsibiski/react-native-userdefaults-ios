@@ -10,6 +10,11 @@
 
 @implementation UserDefaultsManager
 
++ (NSArray *)arrayForKey:(NSString *)key {
+    
+    return [[NSUserDefaults standardUserDefaults] arrayForKey:key];
+}
+
 + (NSString *)stringForKey:(NSString *)key {
     
     return [[NSUserDefaults standardUserDefaults] stringForKey:key];

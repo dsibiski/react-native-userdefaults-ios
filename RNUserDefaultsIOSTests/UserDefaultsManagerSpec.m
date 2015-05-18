@@ -20,6 +20,30 @@ describe(@"UserDefaultsManager", ^{
         userDefaults = [NSUserDefaults standardUserDefaults];
         
     });
+    
+    describe(@"#arrayForKey", ^{
+        
+        it(@"returns the correct array", ^{
+            
+            [userDefaults setValue:@[@"anyArray"] forKey:@"anyArray"];
+           
+            NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+           
+            expect(sut).to.equal(@[@"anyArray"]);
+            
+        });
+        
+        it(@"returns the correct array", ^{
+            
+            [userDefaults setValue:@[@"different", @"array"] forKey:@"anyArray"];
+           
+            NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+            
+            expect(sut).to.equal(@[@"different", @"array"]);
+            
+        });
+        
+    });
 
     describe(@"#stringForKey", ^{
         
