@@ -1,6 +1,6 @@
 {
   "name": "react-native-userdefaults-ios",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "React Native Module for NSUserDefaults",
   "main": "RNUserDefaultsIOS.js",
   "scripts": {
@@ -10,6 +10,15 @@
     "type": "git",
     "url": "git@github.com:dsibiski/react-native-userdefaults-ios.git"
   },
+  "files": [
+    "RNUserDefaultsIOS.xcodeproj",
+    "RNUserDefaultsIOS/RNUserDefaultsIOS.h",
+    "RNUserDefaultsIOS/RNUserDefaultsIOS.m",
+    "RNUserDefaultsIOS/UserDefaultsManager.h",
+    "RNUserDefaultsIOS/UserDefaultsManager.m",
+    "RNUserDefaultsIOS.js",
+    "README.md"
+  ],
   "keywords": [
     "react-component",
     "react-native",

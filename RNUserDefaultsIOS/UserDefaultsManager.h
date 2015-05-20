@@ -10,8 +10,18 @@
 
 @interface UserDefaultsManager : NSObject
 
++ (void)setObject:(id)object forKey:(NSString *)key;
+
++ (void)setBool:(bool)value forKey:(NSString *)key;
+
++ (void)removeObjectForKey:(NSString *)key;
+
 + (NSArray *)arrayForKey:(NSString *)key;
 
 + (NSString *)stringForKey:(NSString *)key;
+
++ (id)objectForKey:(NSString *)key;
+
++ (bool)boolForKey:(NSString *)key;
 
 @end
