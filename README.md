@@ -17,39 +17,82 @@ This library is especially helpful for hybrid apps that already make use of `[NS
 ```javascript
 // Require the library...
 var UserDefaults = require('react-native-userdefaults-ios');
+```
 
-// Get a string for a given key...
-UserDefaults.stringForKey('keyForMyString')
-    .then(string => {
-        //Do something with the returned value...
-        console.log(string);
+#### Writing to `standardUserDefaults`
+```javascript
+//Set an Array...
+var arr = ['1', '2', '3'];
+UserDefaults.setArrayForKey(arr, 'keyForMyArray')
+    .then(result => {
+        console.log(result);
     });
 
+// Set a String...
+UserDefaults.setStringForKey('myString', 'keyForMyString')
+    .then(result => {
+        console.log(result);
+    });
+
+//Set an Object...
+var obj = {
+    name: 'Dave'
+};
+UserDefaults.setObjectForKey(obj, 'keyForMyObject')
+    .then(result => {
+        console.log(result);
+    });
+
+//Set a boolean value...
+UserDefaults.setBoolForKey(true, 'keyForMyBool')
+    .then(result => {
+        console.log(result);
+    });
+
+//Remove an item (works for any type)...
+UserDefaults.removeItemForKey('keyOfItemToRemove')
+    .then(result => {
+        console.log(result);
+    });
+```
+
+#### Reading from `standardUserDefaults`
+```javascript
 // Get an array for a given key...
 UserDefaults.arrayForKey('keyForMyArray')
     .then(array => {
-        //Do something with the returned value...
+        //Do something with the returned array...
         array.forEach(item => {
             console.log(item);
         });
     });
+
+// Get a string for a given key...
+UserDefaults.stringForKey('keyForMyString')
+    .then(string => {
+        //Do something with the returned string...
+        console.log(string);
+    });
+
+// Get an object for a given key...
+UserDefaults.objectForKey('keyForMyObject')
+    .then(obj => {
+        //Do something with the returned object...
+        console.log(obj);
+    });
+
+// Get a boolean value for a given key...
+UserDefaults.boolForKey('keyForMyBool')
+    .then(bool => {
+        //Do something with the returned boolean value...
+        console.log(bool);
+    });
 ```
-
-### Todos for 0.1.0 release
-
-- [x] Implement `arrayForKey:`
-- [x] Implement `stringForKey:`
-- [ ] Implement `setObject:forKey:`
-- [ ] Implement `objectForKey:`
-- [ ] Implement `removeObjectForKey:`
 
 ### Todos for 1.0 release
 
 - [ ] Implement `dataForKey:`
 - [ ] Implement `stringArrayForKey:`
-- [ ] Implement `dictionaryForKey:`
-- [ ] Implement `setBool:forKey:`
-- [ ] Implement `boolForKey:`
 - [ ] Implement `setFloat:forKey:`
 - [ ] Implement `floatForKey:`
 - [ ] Implement `setInteger:forKey:`
@@ -59,3 +102,14 @@ UserDefaults.arrayForKey('keyForMyArray')
 - [ ] Implement `setURL:forKey:`
 - [ ] Implement `URLForKey:`
 - [ ] Implement `NSUserDefaultsDidChangeNotification`
+
+### Todos for 0.1.0 release - DONE!
+
+- [x] Implement `arrayForKey:`
+- [x] Implement `stringForKey:`
+- [x] Implement `setObject:forKey:`
+- [x] Implement `objectForKey:`
+- [x] Implement `removeObjectForKey:`
+- [x] Implement `dictionaryForKey:` Note: This was taken care of with `objectForKey` since in JS an Object is a Dictionary in Obj-C
+- [x] Implement `setBool:forKey:`
+- [x] Implement `boolForKey:`

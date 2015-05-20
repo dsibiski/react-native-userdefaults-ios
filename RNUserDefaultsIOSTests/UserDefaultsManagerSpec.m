@@ -21,50 +21,181 @@ describe(@"UserDefaultsManager", ^{
         
     });
     
-    describe(@"#arrayForKey", ^{
+    describe(@"writing", ^{
         
-        it(@"returns the correct array", ^{
+        describe(@"#setObject:forKey:", ^{
             
-            [userDefaults setValue:@[@"anyArray"] forKey:@"anyArray"];
-           
-            NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
-           
-            expect(sut).to.equal(@[@"anyArray"]);
+            it(@"sets a string for given key", ^{
+                
+                [UserDefaultsManager setObject:@"someString" forKey:@"anyKey"];
+                
+                NSString *sut = [userDefaults objectForKey:@"anyKey"];
+                
+                expect(sut).to.equal(@"someString");
+                
+            });
+            
+            it(@"sets an array for a given key", ^{
+                
+                [UserDefaultsManager setObject:@[@"someStringInAnArray"] forKey:@"anyKey"];
+                
+                NSArray *sut = [userDefaults arrayForKey:@"anyKey"];
+                
+                expect(sut).to.equal(@[@"someStringInAnArray"]);
+                
+            });
             
         });
         
-        it(@"returns the correct array", ^{
+        describe(@"#setBool:forKey:", ^{
             
-            [userDefaults setValue:@[@"different", @"array"] forKey:@"anyArray"];
-           
-            NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+            it(@"sets a bool for given key", ^{
+                
+                [UserDefaultsManager setBool:YES forKey:@"anyKey"];
+                
+                BOOL sut = [userDefaults boolForKey:@"anyKey"];
+                
+                expect(sut).to.equal(YES);
+                
+            });
             
-            expect(sut).to.equal(@[@"different", @"array"]);
+            it(@"sets a different bool for given key", ^{
+                
+                [UserDefaultsManager setBool:NO forKey:@"anyKey"];
+                
+                BOOL sut = [userDefaults boolForKey:@"anyKey"];
+                
+                expect(sut).to.equal(NO);
+                
+            });
+            
+        });
+        
+        describe(@"#removeObjectForKey:", ^{
+            
+            it(@"removes the object for given key", ^{
+                
+                [userDefaults setObject:@"anyValue" forKey:@"objectToRemove"];
+                
+                [UserDefaultsManager removeObjectForKey:@"objectToRemove"];
+                
+                expect([userDefaults objectForKey:@"objectToRemove"]).to.beNil();
+                
+            });
+            
+            it(@"removes a boolean value for given key", ^{
+                
+                [userDefaults setBool:YES forKey:@"objectToRemove"];
+                
+                [UserDefaultsManager removeObjectForKey:@"objectToRemove"];
+                
+                expect([userDefaults boolForKey:@"objectToRemove"]).to.equal(NO);
+                
+            });
             
         });
         
     });
-
-    describe(@"#stringForKey", ^{
+    
+    describe(@"reading", ^{
         
-        it(@"returns the correct string", ^{
+        describe(@"#arrayForKey:", ^{
             
-            [userDefaults setValue:@"anyValue" forKey:@"anyKey"];
+            it(@"returns the correct array", ^{
+                
+                [userDefaults setValue:@[@"anyArray"] forKey:@"anyArray"];
+                
+                NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+                
+                expect(sut).to.equal(@[@"anyArray"]);
+                
+            });
             
-            NSString *sut = [UserDefaultsManager stringForKey:@"anyKey"];
-            
-            expect(sut).to.equal(@"anyValue");
+            it(@"returns the correct array", ^{
+                
+                [userDefaults setValue:@[@"different", @"array"] forKey:@"anyArray"];
+                
+                NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+                
+                expect(sut).to.equal(@[@"different", @"array"]);
+                
+            });
             
         });
         
-        it(@"returns a different string", ^{
+        describe(@"#stringForKey:", ^{
             
-            [userDefaults setValue:@"aDifferentValue" forKey:@"anyKey"];
+            it(@"returns the correct string", ^{
+                
+                [userDefaults setValue:@"anyValue" forKey:@"anyKey"];
+                
+                NSString *sut = [UserDefaultsManager stringForKey:@"anyKey"];
+                
+                expect(sut).to.equal(@"anyValue");
+                
+            });
             
-            NSString *sut = [UserDefaultsManager stringForKey:@"anyKey"];
+            it(@"returns a different string", ^{
+                
+                [userDefaults setValue:@"aDifferentValue" forKey:@"anyKey"];
+                
+                NSString *sut = [UserDefaultsManager stringForKey:@"anyKey"];
+                
+                expect(sut).to.equal(@"aDifferentValue");
+                
+            });
             
-            expect(sut).to.equal(@"aDifferentValue");
+        });
+        
+        describe(@"#objectForKey:", ^{
             
+            it(@"returns the correct Dictionary", ^{
+                
+                NSDictionary *testDict = @{@"anything" : @"something"};
+                
+                [userDefaults setObject:testDict forKey:@"anyKey"];
+                
+                NSDictionary *sut = [UserDefaultsManager objectForKey:@"anyKey"];
+                
+                expect(sut).to.equal(testDict);
+                
+            });
+            
+            it(@"returns a different Dictionary", ^{
+                
+                NSDictionary *testDict = @{@"anythingElse" : @"somethingElse"};
+                
+                [userDefaults setObject:testDict forKey:@"anyKey"];
+                
+                NSDictionary *sut = [UserDefaultsManager objectForKey:@"anyKey"];
+                
+                expect(sut).to.equal(testDict);
+                
+            });
+            
+        });
+        
+        describe(@"#boolForKey:", ^{
+            
+            it(@"returns the correct Boolean value", ^{
+                
+                [userDefaults setBool:YES forKey:@"anyKey"];
+                
+                BOOL sut = [UserDefaultsManager boolForKey:@"anyKey"];
+                
+                expect(sut).to.equal(YES);
+                
+            });
+            
+            it(@"returns a different Boolean value", ^{
+                
+                [userDefaults setBool:NO forKey:@"anyKey"];
+                
+                BOOL sut = [UserDefaultsManager boolForKey:@"anyKey"];
+                
+                expect(sut).to.equal(NO);
+                
+            });
         });
         
     });
