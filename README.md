@@ -23,7 +23,7 @@ UserDefaults.stringForKey('keyForMyString')
     .then(string => {
         //Do something with the returned value...
         console.log(string);
-    };
+    });
 
 // Get an array for a given key...
 UserDefaults.arrayForKey('keyForMyArray')
