@@ -1,3 +1,13 @@
 language: objective-c
+
+cache:
+  directories:
+  - node_modules
+  - Pods
+
+install:
+  - npm install
+  - pod install
+
 xcode_workspace: RNUserDefaultsIOS.xcworkspace
 xcode_scheme: RNUserDefaultsIOS
