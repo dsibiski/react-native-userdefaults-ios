@@ -1,4 +1,4 @@
-## react-native-userdefaults-ios
+## react-native-userdefaults-ios [![Build Status](https://travis-ci.org/dsibiski/react-native-userdefaults-ios.svg?branch=master)](https://travis-ci.org/dsibiski/react-native-userdefaults-ios)
 React Native Module for [NSUserDefaults](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/)
 
 This library is especially helpful for hybrid apps that already make use of `[NSUserDefaults standardUserDefaults]` and would like to read or write to it from within their React components.
