@@ -3,6 +3,8 @@ React Native Module for [NSUserDefaults](https://developer.apple.com/library/ios
 
 This library is especially helpful for hybrid apps that already make use of `[NSUserDefaults standardUserDefaults]` and would like to read or write to it from within their React components.
 
+[![NPM](https://nodei.co/npm/react-native-userdefaults-ios.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/react-native-userdefaults-ios/)
+
 ### Add it to your project
 
 1. Run `npm install react-native-userdefaults-ios --save`
