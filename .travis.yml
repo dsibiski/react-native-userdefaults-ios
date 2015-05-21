@@ -11,3 +11,4 @@ install:
 
 xcode_workspace: RNUserDefaultsIOS.xcworkspace
 xcode_scheme: RNUserDefaultsIOS
+xcode_sdk: iphonesimulator8.1
