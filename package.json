@@ -30,7 +30,9 @@
   "author": "Dave Sibiski <dsibiski@gmail.com> (https://github.com/dsibiski)",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.25",
-    "react-native": "^0.4.4"
+    "bluebird": "^2.9.25"
+  },
+  "peerDependencies": {
+    "react-native": ">= 0.4.4 < 1"
   }
 }
