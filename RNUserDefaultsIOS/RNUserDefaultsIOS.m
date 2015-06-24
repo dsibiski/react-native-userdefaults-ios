@@ -20,7 +20,7 @@ RCT_EXPORT_METHOD(setObjectForKey:(id)object key:(NSString *)key callback:(RCTRe
     callback(@[[NSNull null], @"success"]);
 }
 
-RCT_EXPORT_METHOD(setBoolForKey:(bool)value key:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(setBoolForKey:(BOOL)value key:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
     [UserDefaultsManager setBool:value forKey:key];
     
