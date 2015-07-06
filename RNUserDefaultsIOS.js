@@ -1,6 +1,6 @@
 'use strict';
 
-var NativeModules = require('NativeModules');
+var { NativeModules } = require('react-native');
 var Promise = require('bluebird'); // jshint ignore:line
 var UserDefaults = NativeModules.RNUserDefaultsIOS;
 
