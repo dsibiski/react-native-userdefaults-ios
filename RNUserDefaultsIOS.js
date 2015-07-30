@@ -43,7 +43,7 @@ var UserDefaults = {
     removeItemForKey(key) {
         return _removeItemForKey(key);
     },
-    _setSuiteName(name) {
+    setSuiteName(name) {
         return _setSuiteName(name);
     },
 };
