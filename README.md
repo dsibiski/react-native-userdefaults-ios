@@ -91,6 +91,13 @@ UserDefaults.boolForKey('keyForMyBool')
     });
 ```
 
+#### Writing to user defined suite name
+```javascript
+//Set the suite name
+var suiteName = 'mySuiteName';
+UserDefaults.setSuiteName(suiteName);
+```
+
 ### Todos for 1.0 release
 
 - [ ] Implement `dataForKey:`
