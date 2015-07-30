@@ -10,18 +10,20 @@
 
 @interface UserDefaultsManager : NSObject
 
-+ (void)setObject:(id)object forKey:(NSString *)key;
+- (void)setUserDefaultsSuiteName:(NSString *)suiteName;
 
-+ (void)setBool:(bool)value forKey:(NSString *)key;
+- (void)setObject:(id)object forKey:(NSString *)key;
 
-+ (void)removeObjectForKey:(NSString *)key;
+- (void)setBool:(bool)value forKey:(NSString *)key;
 
-+ (NSArray *)arrayForKey:(NSString *)key;
+- (void)removeObjectForKey:(NSString *)key;
 
-+ (NSString *)stringForKey:(NSString *)key;
+- (NSArray *)arrayForKey:(NSString *)key;
 
-+ (id)objectForKey:(NSString *)key;
+- (NSString *)stringForKey:(NSString *)key;
 
-+ (bool)boolForKey:(NSString *)key;
+- (id)objectForKey:(NSString *)key;
+
+- (bool)boolForKey:(NSString *)key;
 
 @end
