@@ -8,41 +8,64 @@
 
 #import "UserDefaultsManager.h"
 
+@interface UserDefaultsManager ()
+
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
+
+@end
+
 @implementation UserDefaultsManager
 
-+ (void)setObject:(id)object forKey:(NSString *)key {
-    
-    [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    return self;
 }
 
-+ (void)setBool:(bool)value forKey:(NSString *)key {
-    
-    [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
+- (void)setUserDefaultsSuiteName:(NSString *)suiteName
+{
+    _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteName];
 }
 
-+ (void)removeObjectForKey:(NSString *)key {
+- (void)setObject:(id)object forKey:(NSString *)key {
     
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    [self.userDefaults setObject:object forKey:key];
+    [self.userDefaults synchronize];
 }
 
-+ (NSArray *)arrayForKey:(NSString *)key {
+- (void)setBool:(bool)value forKey:(NSString *)key {
     
-    return [[NSUserDefaults standardUserDefaults] arrayForKey:key];
+    [self.userDefaults setBool:value forKey:key];
+    [self.userDefaults synchronize];
 }
 
-+ (NSString *)stringForKey:(NSString *)key {
+- (void)removeObjectForKey:(NSString *)key {
     
-    return [[NSUserDefaults standardUserDefaults] stringForKey:key];
+    [self.userDefaults removeObjectForKey:key];
+    [self.userDefaults synchronize];
 }
 
-+ (id)objectForKey:(NSString *)key {
+- (NSArray *)arrayForKey:(NSString *)key {
     
-    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    return [self.userDefaults arrayForKey:key];
 }
 
-+ (bool)boolForKey:(NSString *)key {
+- (NSString *)stringForKey:(NSString *)key {
     
-    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
+    return [self.userDefaults stringForKey:key];
+}
+
+- (id)objectForKey:(NSString *)key {
+    
+    return [self.userDefaults objectForKey:key];
+}
+
+- (bool)boolForKey:(NSString *)key {
+    
+    return [self.userDefaults boolForKey:key];
 }
 
 @end

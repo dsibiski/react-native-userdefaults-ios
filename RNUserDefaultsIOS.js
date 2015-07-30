@@ -4,6 +4,7 @@ var { NativeModules } = require('react-native');
 var Promise = require('bluebird'); // jshint ignore:line
 var UserDefaults = NativeModules.RNUserDefaultsIOS;
 
+var _setSuiteName = Promise.promisify(UserDefaults.setUserDefaultsSuiteName);
 var _setObjectForKey = Promise.promisify(UserDefaults.setObjectForKey);
 var _setBoolForKey = Promise.promisify(UserDefaults.setBoolForKey);
 
@@ -41,7 +42,10 @@ var UserDefaults = {
     },
     removeItemForKey(key) {
         return _removeItemForKey(key);
-    }
+    },
+    setSuiteName(name) {
+        return _setSuiteName(name);
+    },
 };
 
 module.exports = UserDefaults;

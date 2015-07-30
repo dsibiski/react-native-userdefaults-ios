@@ -27,7 +27,7 @@ describe(@"UserDefaultsManager", ^{
             
             it(@"sets a string for given key", ^{
                 
-                [UserDefaultsManager setObject:@"someString" forKey:@"anyKey"];
+                [[UserDefaultsManager new] setObject:@"someString" forKey:@"anyKey"];
                 
                 NSString *sut = [userDefaults objectForKey:@"anyKey"];
                 
@@ -37,7 +37,7 @@ describe(@"UserDefaultsManager", ^{
             
             it(@"sets an array for a given key", ^{
                 
-                [UserDefaultsManager setObject:@[@"someStringInAnArray"] forKey:@"anyKey"];
+                [[UserDefaultsManager new] setObject:@[@"someStringInAnArray"] forKey:@"anyKey"];
                 
                 NSArray *sut = [userDefaults arrayForKey:@"anyKey"];
                 
@@ -51,7 +51,7 @@ describe(@"UserDefaultsManager", ^{
             
             it(@"sets a bool for given key", ^{
                 
-                [UserDefaultsManager setBool:YES forKey:@"anyKey"];
+                [[UserDefaultsManager new] setBool:YES forKey:@"anyKey"];
                 
                 BOOL sut = [userDefaults boolForKey:@"anyKey"];
                 
@@ -61,7 +61,7 @@ describe(@"UserDefaultsManager", ^{
             
             it(@"sets a different bool for given key", ^{
                 
-                [UserDefaultsManager setBool:NO forKey:@"anyKey"];
+                [[UserDefaultsManager new] setBool:NO forKey:@"anyKey"];
                 
                 BOOL sut = [userDefaults boolForKey:@"anyKey"];
                 
@@ -77,7 +77,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setObject:@"anyValue" forKey:@"objectToRemove"];
                 
-                [UserDefaultsManager removeObjectForKey:@"objectToRemove"];
+                [[UserDefaultsManager new] removeObjectForKey:@"objectToRemove"];
                 
                 expect([userDefaults objectForKey:@"objectToRemove"]).to.beNil();
                 
@@ -87,7 +87,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setBool:YES forKey:@"objectToRemove"];
                 
-                [UserDefaultsManager removeObjectForKey:@"objectToRemove"];
+                [[UserDefaultsManager new] removeObjectForKey:@"objectToRemove"];
                 
                 expect([userDefaults boolForKey:@"objectToRemove"]).to.equal(NO);
                 
@@ -105,7 +105,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setValue:@[@"anyArray"] forKey:@"anyArray"];
                 
-                NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+                NSArray *sut = [[UserDefaultsManager new] arrayForKey:@"anyArray"];
                 
                 expect(sut).to.equal(@[@"anyArray"]);
                 
@@ -115,7 +115,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setValue:@[@"different", @"array"] forKey:@"anyArray"];
                 
-                NSArray *sut = [UserDefaultsManager arrayForKey:@"anyArray"];
+                NSArray *sut = [[UserDefaultsManager new] arrayForKey:@"anyArray"];
                 
                 expect(sut).to.equal(@[@"different", @"array"]);
                 
@@ -129,7 +129,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setValue:@"anyValue" forKey:@"anyKey"];
                 
-                NSString *sut = [UserDefaultsManager stringForKey:@"anyKey"];
+                NSString *sut = [[UserDefaultsManager new] stringForKey:@"anyKey"];
                 
                 expect(sut).to.equal(@"anyValue");
                 
@@ -139,7 +139,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setValue:@"aDifferentValue" forKey:@"anyKey"];
                 
-                NSString *sut = [UserDefaultsManager stringForKey:@"anyKey"];
+                NSString *sut = [[UserDefaultsManager new] stringForKey:@"anyKey"];
                 
                 expect(sut).to.equal(@"aDifferentValue");
                 
@@ -155,7 +155,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setObject:testDict forKey:@"anyKey"];
                 
-                NSDictionary *sut = [UserDefaultsManager objectForKey:@"anyKey"];
+                NSDictionary *sut = [[UserDefaultsManager new] objectForKey:@"anyKey"];
                 
                 expect(sut).to.equal(testDict);
                 
@@ -167,7 +167,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setObject:testDict forKey:@"anyKey"];
                 
-                NSDictionary *sut = [UserDefaultsManager objectForKey:@"anyKey"];
+                NSDictionary *sut = [[UserDefaultsManager new] objectForKey:@"anyKey"];
                 
                 expect(sut).to.equal(testDict);
                 
@@ -181,7 +181,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setBool:YES forKey:@"anyKey"];
                 
-                BOOL sut = [UserDefaultsManager boolForKey:@"anyKey"];
+                BOOL sut = [[UserDefaultsManager new] boolForKey:@"anyKey"];
                 
                 expect(sut).to.equal(YES);
                 
@@ -191,7 +191,7 @@ describe(@"UserDefaultsManager", ^{
                 
                 [userDefaults setBool:NO forKey:@"anyKey"];
                 
-                BOOL sut = [UserDefaultsManager boolForKey:@"anyKey"];
+                BOOL sut = [[UserDefaultsManager new] boolForKey:@"anyKey"];
                 
                 expect(sut).to.equal(NO);
                 

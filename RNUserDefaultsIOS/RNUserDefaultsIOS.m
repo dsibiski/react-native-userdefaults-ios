@@ -9,34 +9,54 @@
 #import "RNUserDefaultsIOS.h"
 #import "UserDefaultsManager.h"
 
+@interface RNUserDefaultsIOS ()
+
+@property (nonatomic, strong) UserDefaultsManager *userDefaultsManager;
+
+@end
+
 @implementation RNUserDefaultsIOS
 
 RCT_EXPORT_MODULE()
 
+- (id) init
+{
+    self = [super init];
+    if (self) {
+        _userDefaultsManager = [UserDefaultsManager new];
+    }
+    return self;
+}
+
+RCT_EXPORT_METHOD(setUserDefaultsSuiteName:(NSString *)suiteName callback:(RCTResponseSenderBlock)callback) {
+    [self.userDefaultsManager setUserDefaultsSuiteName:suiteName];
+    callback(@[[NSNull null], @"success"]);
+}
+
 RCT_EXPORT_METHOD(setObjectForKey:(id)object key:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    [UserDefaultsManager setObject:object forKey:key];
+    [self.userDefaultsManager setObject:object forKey:key];
     
     callback(@[[NSNull null], @"success"]);
 }
 
 RCT_EXPORT_METHOD(setBoolForKey:(BOOL)value key:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    [UserDefaultsManager setBool:value forKey:key];
+    [self.userDefaultsManager setBool:value forKey:key];
     
     callback(@[[NSNull null], @"success"]);
 }
 
 RCT_EXPORT_METHOD(removeObjectForKey:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    [UserDefaultsManager removeObjectForKey:key];
+    [self.userDefaultsManager removeObjectForKey:key];
     
     callback(@[[NSNull null], @"success"]);
 }
 
 RCT_EXPORT_METHOD(arrayForKey:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    id response = [UserDefaultsManager arrayForKey:key];
+    id response = [self.userDefaultsManager arrayForKey:key];
     
     if (response) {
         
@@ -50,7 +70,7 @@ RCT_EXPORT_METHOD(arrayForKey:(NSString *)key callback:(RCTResponseSenderBlock)c
 
 RCT_EXPORT_METHOD(stringForKey:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    id response = [UserDefaultsManager stringForKey:key];
+    id response = [self.userDefaultsManager stringForKey:key];
     
     if (response) {
         
@@ -64,7 +84,7 @@ RCT_EXPORT_METHOD(stringForKey:(NSString *)key callback:(RCTResponseSenderBlock)
 
 RCT_EXPORT_METHOD(objectForKey:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    id response = [UserDefaultsManager objectForKey:key];
+    id response = [self.userDefaultsManager objectForKey:key];
     
     if (response) {
         
@@ -78,7 +98,7 @@ RCT_EXPORT_METHOD(objectForKey:(NSString *)key callback:(RCTResponseSenderBlock)
 
 RCT_EXPORT_METHOD(boolForKey:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
-    bool response = [UserDefaultsManager boolForKey:key];
+    bool response = [self.userDefaultsManager boolForKey:key];
     
     callback(@[[NSNull null], [NSNumber numberWithBool:response]]);
 }
