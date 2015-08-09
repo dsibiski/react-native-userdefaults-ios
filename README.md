@@ -98,11 +98,6 @@ var suiteName = 'mySuiteName';
 UserDefaults.setSuiteName(suiteName);
 // then start reading and writing to UserDefaults as the standardUserDefaults
 
-// if you want to switch back to the standardUserDefaults
-var suiteName = 'com.xxx.xxx'; // normally your bundle identifier
-UserDefaults.setSuiteName(suiteName);
-```
-
 ### Todos for 1.0 release
 
 - [ ] Implement `dataForKey:`
