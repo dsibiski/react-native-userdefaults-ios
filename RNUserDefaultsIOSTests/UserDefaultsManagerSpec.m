@@ -6,6 +6,11 @@
 
 #import "UserDefaultsManager.h"
 
+#ifndef RCTRegisterModule
+void RCTRegisterModule() {
+}
+#endif
+
 @interface UserDefaultsManager (Test)
 @end
 
@@ -22,7 +27,16 @@ describe(@"UserDefaultsManager", ^{
     });
     
     describe(@"writing", ^{
-        
+        describe(@"#registerDefaults:", ^{
+            it(@"", ^{
+
+                NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:@"My-Custom-User-Agent", @"UserAgent", nil];
+                
+                [UserDefaultsManager registerDefaults:dictionary];
+
+                expect([userDefaults stringForKey:@"UserAgent"]).to.equal(@"My-Custom-User-Agent");
+            });
+        });
         describe(@"#setObject:forKey:", ^{
             
             it(@"sets a string for given key", ^{

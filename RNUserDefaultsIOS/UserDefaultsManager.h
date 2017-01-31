@@ -10,6 +10,8 @@
 
 @interface UserDefaultsManager : NSObject
 
++ (void)registerDefaults:(NSDictionary*)dict;
+
 + (void)setObject:(id)object forKey:(NSString *)key;
 
 + (void)setBool:(bool)value forKey:(NSString *)key;

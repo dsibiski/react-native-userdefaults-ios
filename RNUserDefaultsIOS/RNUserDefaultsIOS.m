@@ -13,6 +13,13 @@
 
 RCT_EXPORT_MODULE()
 
+RCT_EXPORT_METHOD(registerDefaults:(NSDictionary*)dict callback:(RCTResponseSenderBlock)callback) {
+    
+    [UserDefaultsManager registerDefaults:dict];
+    
+    callback(@[[NSNull null], @"success"]);
+}
+
 RCT_EXPORT_METHOD(setObjectForKey:(id)object key:(NSString *)key callback:(RCTResponseSenderBlock)callback) {
     
     [UserDefaultsManager setObject:object forKey:key];
