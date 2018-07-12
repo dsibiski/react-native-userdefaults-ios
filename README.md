@@ -10,8 +10,8 @@ This library is especially helpful for hybrid apps that already make use of `[NS
 1. Run `npm install react-native-userdefaults-ios --save`
 2. Open your project in XCode, right click on `Libraries` and click `Add
    Files to "Your Project Name"`.
-3. Select the `RNUserDefaults.xcodeproj` file in the `node_modules/react-native-userdefaults-ios` folder and click `Add`
-4. In the Xcode Project Navigator find the `RNUserDefaults.xcodproj` and add the  `Products/libRNUserDefaultsIOS.a` to `Build Phases -> Link Binary With Libraries`.
+3. Select the `RNUserDefaultsIOS.xcodeproj` file in the `node_modules/react-native-userdefaults-ios` folder and click `Add`
+4. In the Xcode Project Navigator, select your project and add `libRNUserDefaultsIOS.a` from the `Libraries/RNUserDefaultsIOS.xcodeproj/Products` folder to `Build Phases -> Link Binary With Libraries`.
 5. Follow the implementation example below...
 
 ### Example
