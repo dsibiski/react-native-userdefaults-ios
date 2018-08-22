@@ -4,6 +4,8 @@ var { NativeModules } = require('react-native');
 var Promise = require('bluebird'); // jshint ignore:line
 var UserDefaults = NativeModules.RNUserDefaultsIOS;
 
+var _registerDefaults = Promise.promisify(UserDefaults.registerDefaults);
+
 var _setObjectForKey = Promise.promisify(UserDefaults.setObjectForKey);
 var _setBoolForKey = Promise.promisify(UserDefaults.setBoolForKey);
 
@@ -15,6 +17,9 @@ var _boolForKey = Promise.promisify(UserDefaults.boolForKey);
 var _removeItemForKey = Promise.promisify(UserDefaults.removeObjectForKey);
 
 var UserDefaults = {
+    registerDefaults(defs) {
+        return _registerDefaults(defs);
+    },
     setArrayForKey(array, key) {
         return _setObjectForKey(array, key);
     },

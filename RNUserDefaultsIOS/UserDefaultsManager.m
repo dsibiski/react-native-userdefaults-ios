@@ -10,6 +10,10 @@
 
 @implementation UserDefaultsManager
 
++ (void)registerDefaults:(NSDictionary*)dict {
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
+}
+
 + (void)setObject:(id)object forKey:(NSString *)key {
     
     [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];

@@ -23,6 +23,12 @@ var UserDefaults = require('react-native-userdefaults-ios');
 
 #### Writing to `standardUserDefaults`
 ```javascript
+// Register defaults
+UserDefaults.registerDefaults({'UserAgent': 'My-Custom-Agent'})
+    .then(result => {
+        console.log(result);
+    });
+
 //Set an Array...
 var arr = ['1', '2', '3'];
 UserDefaults.setArrayForKey(arr, 'keyForMyArray')
